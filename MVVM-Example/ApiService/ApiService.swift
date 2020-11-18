@@ -22,7 +22,6 @@ enum EndPoints {
 class ApiService: NSObject {
     
     static func fetchAllEmployees(completionBlock:@escaping (Employees) -> ()) {
-        
         URLSession.shared.dataTask(with: EndPoints.employeeList.getEndpoint()) { (data, response, apiError) in
             
             if let jsonData = data {
@@ -40,11 +39,8 @@ class ApiService: NSObject {
         }.resume()
     }
     
-    static func fetchEmployeeData(completionBlock:@escaping (EmployeeData) -> ()) {
-        
-    }
+    static func fetchEmployeeData(completionBlock:@escaping (EmployeeData) -> ()) {}
     
-    private func callEndpoint(decodableProtocol: Any, completionBlock:@escaping (Any) -> ()) {
-        
-    }
+    private func callEndpoint(decodableProtocol: Any, completionBlock:@escaping (Any) -> ()) {}
+    
 }

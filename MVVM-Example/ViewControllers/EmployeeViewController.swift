@@ -26,17 +26,11 @@ class EmployeeViewController: UIViewController {
         }
     }
     
-    func updateDataSource(){
-        
-        self.dataSource = EmployeeTableViewDataSource(cellIdentifier: "EmployeeTableViewCell", items: self.employeeViewModel.empData.data, configureCell: { (cell, evm) in
-            cell.employeeIdLabel.text = evm.id
-            cell.employeeNameLabel.text = evm.employeeName
+    func updateDataSource() {
+        self.dataSource = EmployeeTableViewDataSource(cellIdentifier: "EmployeeTableViewCell", items: self.employeeViewModel.empData.data, configureCell: { (cell, employee) in
         })
         
-        DispatchQueue.main.async {
-            self.employeeTableView.dataSource = self.dataSource
-            self.employeeTableView.reloadData()
-        }
+        self.employeeView.setupDataSourceAndRefereshData(dataSource: self.dataSource)
     }
-
+    
 }

@@ -26,4 +26,11 @@ class EmployeeView: UIView {
     private func setupTableView() {
         self.employeeTableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeTableViewCell")
     }
+    
+    func setupDataSourceAndRefereshData(dataSource: EmployeeTableViewDataSource<EmployeeTableViewCell,EmployeeData>) {
+        DispatchQueue.main.async {
+            self.employeeTableView.dataSource = dataSource
+            self.employeeTableView.reloadData()
+        }
+    }
 }

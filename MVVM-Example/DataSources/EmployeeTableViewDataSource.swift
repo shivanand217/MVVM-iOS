@@ -25,7 +25,10 @@ class EmployeeTableViewDataSource<EmployeeTableViewCell: UITableViewCell, T> : N
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! EmployeeTableViewCell
+        let item = self.items[indexPath.row]
+        self.configureCell(cell, item)
+        return cell
     }
     
 }
